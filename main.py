@@ -4,8 +4,11 @@ from string import ascii_letters
 def cipher(text, shift, decode=False):
     result = ''
     for i in text:
-        result += ascii_letters[ascii_letters.index(i) - shift] if decode \
-            else ascii_letters[ascii_letters.index(i) + shift]
+        if i not in ascii_letters:
+            result += i
+        else:
+            result += ascii_letters[ascii_letters.index(i) - shift] if decode \
+                else ascii_letters[ascii_letters.index(i) + shift]
 
     return result
 
